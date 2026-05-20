@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avni Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Avni</span>
+      </div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active" data-section="overview">Overview</a>
+        <a href="#" class="nav-item" data-section="clipboard">Clipboard History</a>
+        <a href="#" class="nav-item" data-section="context">Context Builder</a>
+        <a href="#" class="nav-item" data-section="settings">Settings</a>
+      </nav>
+      <div class="sidebar-footer">
+        <span class="version">v1.0.0</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="topbar">
+        <h1>Dashboard</h1>
+        <div class="user-profile">
+          <div class="avatar"></div>
+        </div>
+      </header>
+
+      <div class="content-scroll">
+        <!-- Overview Section -->
+        <section id="overview" class="content-section active">
+          <!-- 3 Stat Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon clipboard-icon"></div>
+              <div class="stat-info">
+                <h3>Total Clips</h3>
+                <p class="stat-number">1,284</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon tokens-icon"></div>
+              <div class="stat-info">
+                <h3>Tokens Saved</h3>
+                <p class="stat-number">342K</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon context-icon"></div>
+              <div class="stat-info">
+                <h3>Active Contexts</h3>
+                <p class="stat-number">12</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clipboard History Section -->
+          <div class="section-card clipboard-section">
+            <div class="section-header">
+              <h2>Recent Clipboard History</h2>
+              <button class="text-btn">View All</button>
+            </div>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Platform</th>
+                    <th>Tokens</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Placeholder data -->
+                  <tr>
+                    <td>System Prompt Update</td>
+                    <td>Claude</td>
+                    <td>420</td>
+                    <td>10 min ago</td>
+                  </tr>
+                  <tr>
+                    <td>React Component Refactor</td>
+                    <td>ChatGPT</td>
+                    <td>1,240</td>
+                    <td>1 hour ago</td>
+                  </tr>
+                  <tr>
+                    <td>API Documentation</td>
+                    <td>Gemini</td>
+                    <td>890</td>
+                    <td>Yesterday</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Context Info Section -->
+          <div class="section-card context-section">
+            <div class="section-header">
+              <h2>Active Context Info</h2>
+              <button class="primary-btn">New Context</button>
+            </div>
+            <div class="context-grid">
+              <div class="context-item">
+                <span class="context-title">Frontend Project</span>
+                <span class="context-size">4 Files • 8.5K Tokens</span>
+              </div>
+              <div class="context-item">
+                <span class="context-title">Bug #402 Investigation</span>
+                <span class="context-size">2 Files • 1.2K Tokens</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Placeholder for other sections -->
+        <section id="clipboard" class="content-section">
+          <h2>Detailed Clipboard History</h2>
+          <p>Coming soon...</p>
+        </section>
+        <section id="context" class="content-section">
+          <h2>Context Builder</h2>
+          <p>Coming soon...</p>
+        </section>
+        <section id="settings" class="content-section">
+          <h2>Settings</h2>
+          <p>Coming soon...</p>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>

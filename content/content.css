@@ -1,0 +1,21 @@
+/**
+ * Styles for injected UI elements across platforms
+ */
+
+:root {
+  --avni-bg: #F7F6F3;
+  --avni-accent: #2D5BE3;
+  --avni-text: #1A1A2E;
+  --avni-radius: 12px;
+}
+
+/* Example injection class */
+.avni-injected-container {
+  background: var(--avni-bg);
+  border: 1px solid var(--avni-accent);
+  border-radius: var(--avni-radius);
+  color: var(--avni-text);
+  font-family: 'Inter', sans-serif;
+  padding: 8px 12px;
+  z-index: 9999;
+}
