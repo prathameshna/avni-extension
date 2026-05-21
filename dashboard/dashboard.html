@@ -5,143 +5,242 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Avni Dashboard</title>
   <link rel="stylesheet" href="dashboard.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="dashboard-container">
-    <!-- Sidebar Navigation -->
+  <div class="dashboard-container" id="avni-dashboard">
+
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-logo">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-          <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <div class="logo-icon">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">auto_awesome</span>
+        </div>
         <span>Avni</span>
       </div>
+
       <nav class="nav-menu">
-        <a href="#" class="nav-item active" data-section="overview">Overview</a>
-        <a href="#" class="nav-item" data-section="clipboard">Clipboard History</a>
-        <a href="#" class="nav-item" data-section="context">Context Builder</a>
-        <a href="#" class="nav-item" data-section="settings">Settings</a>
+        <div class="nav-item active" data-section="overview">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">dashboard</span>
+          <span>Dashboard</span>
+        </div>
+        <div class="nav-item" data-section="tokens">
+          <span class="material-symbols-outlined">toll</span>
+          <span>Token Manager</span>
+        </div>
+        <div class="nav-item" data-section="clipboard">
+          <span class="material-symbols-outlined">content_paste</span>
+          <span>Clipboard</span>
+        </div>
+        <div class="nav-item" data-section="context">
+          <span class="material-symbols-outlined">auto_stories</span>
+          <span>Context</span>
+        </div>
+        <div class="nav-item" data-section="settings">
+          <span class="material-symbols-outlined">settings</span>
+          <span>Settings</span>
+        </div>
       </nav>
-      <div class="sidebar-footer">
-        <span class="version">v1.0.0</span>
+
+      <div class="sidebar-plan">
+        <p class="plan-label">PRO PLAN</p>
+        <div class="plan-bar"><div class="plan-fill"></div></div>
       </div>
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- Main -->
     <main class="main-content">
-      <header class="topbar">
-        <h1>Dashboard</h1>
-        <div class="user-profile">
-          <div class="avatar"></div>
+
+      <!-- Topbar / Drag Handle -->
+      <header class="topbar drag-bar">
+        <div class="topbar-left">
+          <div class="window-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-amber"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="topbar-breadcrumb">Dashboard / Session Overview</span>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn"><span class="material-symbols-outlined">search</span></button>
+          <button class="icon-btn"><span class="material-symbols-outlined">notifications</span></button>
+          <button class="icon-btn icon-btn--close" id="btn-close" title="Close">
+            <span class="material-symbols-outlined">close</span>
+          </button>
         </div>
       </header>
 
+      <!-- Scrollable Content -->
       <div class="content-scroll">
-        <!-- Overview Section -->
+
+        <!-- OVERVIEW -->
         <section id="overview" class="content-section active">
-          <!-- 3 Stat Cards -->
+
+          <!-- Bento Stats -->
           <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-icon clipboard-icon"></div>
-              <div class="stat-info">
-                <h3>Total Clips</h3>
-                <p class="stat-number">1,284</p>
+            <div class="stat-card hover-lift">
+              <div class="stat-top">
+                <span class="stat-icon-wrap stat-icon--blue">
+                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">timer</span>
+                </span>
+                <span class="stat-delta positive">+12%</span>
+              </div>
+              <p class="stat-label">SESSION USAGE</p>
+              <div class="stat-bottom">
+                <span class="stat-number">45%</span>
+                <span class="stat-unit">of limit</span>
               </div>
             </div>
-            <div class="stat-card">
-              <div class="stat-icon tokens-icon"></div>
-              <div class="stat-info">
-                <h3>Tokens Saved</h3>
-                <p class="stat-number">342K</p>
+
+            <div class="stat-card hover-lift">
+              <div class="stat-top">
+                <span class="stat-icon-wrap stat-icon--orange">
+                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">bar_chart</span>
+                </span>
+                <span class="stat-delta negative">-4%</span>
+              </div>
+              <p class="stat-label">WEEKLY USAGE</p>
+              <div class="stat-bottom">
+                <span class="stat-number">62%</span>
+                <span class="stat-unit">efficiency</span>
               </div>
             </div>
-            <div class="stat-card">
-              <div class="stat-icon context-icon"></div>
-              <div class="stat-info">
-                <h3>Active Contexts</h3>
-                <p class="stat-number">12</p>
+
+            <div class="stat-card stat-card--accent hover-lift">
+              <div class="stat-top">
+                <span class="stat-icon-wrap stat-icon--white">
+                  <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">toll</span>
+                </span>
+                <span class="stat-delta live">Live</span>
+              </div>
+              <p class="stat-label stat-label--light">TOTAL TOKENS</p>
+              <div class="stat-bottom">
+                <span class="stat-number">40,311</span>
+                <span class="stat-unit stat-unit--light">processed</span>
               </div>
             </div>
           </div>
 
-          <!-- Clipboard History Section -->
-          <div class="section-card clipboard-section">
-            <div class="section-header">
-              <h2>Recent Clipboard History</h2>
-              <button class="text-btn">View All</button>
-            </div>
-            <div class="table-container">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Platform</th>
-                    <th>Tokens</th>
-                    <th>Time</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Placeholder data -->
-                  <tr>
-                    <td>System Prompt Update</td>
-                    <td>Claude</td>
-                    <td>420</td>
-                    <td>10 min ago</td>
-                  </tr>
-                  <tr>
-                    <td>React Component Refactor</td>
-                    <td>ChatGPT</td>
-                    <td>1,240</td>
-                    <td>1 hour ago</td>
-                  </tr>
-                  <tr>
-                    <td>API Documentation</td>
-                    <td>Gemini</td>
-                    <td>890</td>
-                    <td>Yesterday</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <!-- Bottom Grid -->
+          <div class="bottom-grid">
 
-          <!-- Context Info Section -->
-          <div class="section-card context-section">
-            <div class="section-header">
-              <h2>Active Context Info</h2>
-              <button class="primary-btn">New Context</button>
-            </div>
-            <div class="context-grid">
-              <div class="context-item">
-                <span class="context-title">Frontend Project</span>
-                <span class="context-size">4 Files • 8.5K Tokens</span>
+            <!-- Left: Active Model + Status -->
+            <div class="left-col">
+              <div class="model-card hover-lift">
+                <div class="model-card-glow"></div>
+                <div class="active-model-badge">
+                  <span class="pulse-indicator"></span>
+                  <span>ACTIVE MODEL</span>
+                </div>
+                <div class="model-info">
+                  <div class="model-icon">
+                    <span class="material-symbols-outlined">psychology</span>
+                  </div>
+                  <div>
+                    <h2 class="model-name">Claude Sonnet 3.5</h2>
+                    <p class="model-desc">High-speed reasoning engine</p>
+                  </div>
+                </div>
+                <div class="model-actions">
+                  <button class="btn-primary">
+                    <span class="material-symbols-outlined">bolt</span>
+                    Save Context Capsule
+                  </button>
+                  <button class="btn-secondary">View Manifest</button>
+                </div>
               </div>
-              <div class="context-item">
-                <span class="context-title">Bug #402 Investigation</span>
-                <span class="context-size">2 Files • 1.2K Tokens</span>
+
+              <div class="status-grid">
+                <div class="status-card">
+                  <div class="status-icon"><span class="material-symbols-outlined">hub</span></div>
+                  <div>
+                    <span class="status-label">Network Status</span>
+                    <span class="status-value">Stable (14ms)</span>
+                  </div>
+                </div>
+                <div class="status-card">
+                  <div class="status-icon"><span class="material-symbols-outlined">database</span></div>
+                  <div>
+                    <span class="status-label">Sync Status</span>
+                    <span class="status-value">Up to date</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Recent Clipboard -->
+            <div class="clipboard-card">
+              <div class="clipboard-header">
+                <span class="clipboard-title">Recent Clipboard</span>
+                <span class="material-symbols-outlined clipboard-icon-btn">history</span>
+              </div>
+              <div class="clipboard-list">
+                <div class="clip-item">
+                  <div class="clip-icon"><span class="material-symbols-outlined">code</span></div>
+                  <div class="clip-info">
+                    <p class="clip-name">Tailwind Config Fix</p>
+                    <p class="clip-meta">JSON • 2m ago</p>
+                  </div>
+                </div>
+                <div class="clip-item">
+                  <div class="clip-icon"><span class="material-symbols-outlined">description</span></div>
+                  <div class="clip-info">
+                    <p class="clip-name">Project Briefing v2</p>
+                    <p class="clip-meta">DOCX • 14m ago</p>
+                  </div>
+                </div>
+                <div class="clip-item">
+                  <div class="clip-icon"><span class="material-symbols-outlined">code</span></div>
+                  <div class="clip-info">
+                    <p class="clip-name">API Response Schema</p>
+                    <p class="clip-meta">JSON • 1h ago</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Placeholder for other sections -->
+        <!-- TOKEN MANAGER -->
+        <section id="tokens" class="content-section">
+          <h2 class="page-title">Token Manager</h2>
+          <p class="page-sub">Detailed token tracking coming soon.</p>
+        </section>
+
+        <!-- CLIPBOARD -->
         <section id="clipboard" class="content-section">
-          <h2>Detailed Clipboard History</h2>
-          <p>Coming soon...</p>
+          <h2 class="page-title">Clipboard History</h2>
+          <p class="page-sub">Full clipboard history coming soon.</p>
         </section>
+
+        <!-- CONTEXT -->
         <section id="context" class="content-section">
-          <h2>Context Builder</h2>
-          <p>Coming soon...</p>
+          <h2 class="page-title">Context Builder</h2>
+          <p class="page-sub">Context builder coming soon.</p>
         </section>
+
+        <!-- SETTINGS -->
         <section id="settings" class="content-section">
-          <h2>Settings</h2>
-          <p>Coming soon...</p>
+          <h2 class="page-title">Settings</h2>
+          <p class="page-sub">Settings panel coming soon.</p>
         </section>
-      </div>
+
+      </div><!-- .content-scroll -->
+
+      <!-- Footer -->
+      <footer class="dash-footer">
+        <p>© 2024 Avni AI. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Docs</a>
+        </div>
+      </footer>
+
     </main>
   </div>
+
   <script src="dashboard.js"></script>
 </body>
 </html>
