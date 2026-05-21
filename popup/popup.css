@@ -48,22 +48,21 @@ body {
   color: var(--accent-color);
 }
 
-.icon-btn {
-  background: none;
+.open-dashboard-btn {
+  background-color: var(--accent-color);
+  color: white;
   border: none;
-  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
-  padding: 4px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s, color 0.2s;
+  transition: opacity 0.2s;
 }
 
-.icon-btn:hover {
-  background-color: var(--bg-color);
-  color: var(--text-primary);
+.open-dashboard-btn:hover {
+  opacity: 0.88;
 }
 
 .tabs {

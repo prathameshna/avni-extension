@@ -20,8 +20,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const openDashboardBtn = document.getElementById('open-dashboard');
   if (openDashboardBtn) {
     openDashboardBtn.addEventListener('click', () => {
-      // TODO: Replace with chrome.tabs.create for full page, or chrome.sidePanel based on implementation
-      chrome.tabs.create({ url: chrome.runtime.getURL('dashboard/dashboard.html') });
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const activeTab = tabs[0];
+
+        if (!activeTab?.id) {
+          return;
+        }
+
+        chrome.tabs.sendMessage(activeTab.id, { type: 'AVNI_TOGGLE_DASHBOARD' }, () => {
+          if (chrome.runtime.lastError) {
+            console.warn('[Avni] Content script missing. Injecting dynamically...');
+            
+            // Inject CSS first, then JS, then toggle
+            chrome.scripting.insertCSS({
+              target: { tabId: activeTab.id },
+              files: ['content/content.css']
+            }).then(() => {
+              return chrome.scripting.executeScript({
+                target: { tabId: activeTab.id },
+                files: ['content/content.js']
+              });
+            }).then(() => {
+              chrome.tabs.sendMessage(activeTab.id, { type: 'AVNI_TOGGLE_DASHBOARD' });
+              window.close();
+            }).catch(err => {
+              console.error('[Avni] Failed to inject:', err);
+            });
+          } else {
+            window.close();
+          }
+        });
+      });
     });
   }
 
